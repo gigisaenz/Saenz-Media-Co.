@@ -87,59 +87,50 @@
     margin:0;
   }
 
-  /* Hero banner carousel */
+  /* Hero banner filmstrip */
   .banner{
     position:relative;
-    height:clamp(320px,52vw,560px);
+  }
+  .banner-track{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+  }
+  .banner-tile{
+    position:relative;
+    aspect-ratio:3/4;
     overflow:hidden;
     background:var(--ink);
   }
-  .banner-slide{
+  .tile-slide{
     position:absolute;inset:0;
     opacity:0;
     transition:opacity 1.1s ease;
   }
-  .banner-slide.active{opacity:1;}
-  .banner-slide .bg{
-    position:absolute;inset:0;z-index:0;
-    width:100%;height:100%;object-fit:cover;
-    transform:scale(1.15);
-    filter:blur(30px) brightness(0.5) saturate(1.1);
+  .tile-slide.active{opacity:1;}
+  .tile-slide img{
+    width:100%;height:100%;object-fit:cover;display:block;
   }
-  .banner-slide .fg{
-    position:absolute;inset:0;z-index:1;
-    width:100%;height:100%;object-fit:contain;display:block;
-    filter:drop-shadow(0 16px 36px rgba(0,0,0,0.45));
-  }
-  .banner-cap{
-    position:absolute;left:6%;bottom:22px;z-index:2;
-    display:flex;align-items:center;gap:8px;
+  .tile-cap{
+    position:absolute;left:10px;bottom:10px;z-index:2;
+    display:flex;align-items:center;gap:6px;
     font-family:'IBM Plex Mono',monospace;
-    font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;
+    font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;
     color:var(--paper);
+    background:rgba(27,26,23,0.55);
+    padding:5px 9px;
   }
-  .banner-cap::before{content:'';width:7px;height:7px;background:var(--amber);border-radius:50%;flex-shrink:0;}
+  .tile-cap::before{content:'';width:5px;height:5px;background:var(--amber);border-radius:50%;flex-shrink:0;}
   .banner-more{
-    position:absolute;right:6%;top:20px;z-index:2;
+    display:inline-block;margin:14px 6% 0;
     font-family:'IBM Plex Mono',monospace;
     font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
-    color:var(--paper);text-decoration:none;
-    border-bottom:1px solid rgba(246,244,238,0.5);
+    color:var(--ink);text-decoration:none;
+    border-bottom:1px solid var(--ink-soft);
     padding-bottom:2px;
     transition:border-color .2s;
   }
-  .banner-more:hover{border-color:var(--paper);}
-  .banner-dots{
-    position:absolute;right:6%;bottom:24px;z-index:2;
-    display:flex;gap:8px;
-  }
-  .banner-dots button{
-    width:7px;height:7px;border-radius:50%;padding:0;
-    border:1px solid rgba(246,244,238,0.7);
-    background:transparent;cursor:pointer;
-    transition:background .2s,transform .2s;
-  }
-  .banner-dots button.active{background:var(--paper);transform:scale(1.2);}
+  .banner-more:hover{border-color:var(--ink);}
 
   /* Sprocket divider */
   .sprockets{
@@ -329,37 +320,75 @@
 </div>
 
 <div class="banner" id="banner">
-  <div class="banner-slide active" data-cap="Wedding">
-    <img class="bg" src="images/full/wedding-11.jpg" alt="" aria-hidden="true">
-    <img class="fg" src="images/full/wedding-11.jpg" alt="Bride and groom walking down the aisle at their wedding reception">
-  </div>
-  <div class="banner-slide" data-cap="Wedding">
-    <img class="bg" src="images/full/wedding-04.png" alt="" aria-hidden="true">
-    <img class="fg" src="images/full/wedding-04.png" alt="Bride and groom laughing together outside their wedding venue">
-  </div>
-  <div class="banner-slide" data-cap="Family">
-    <img class="bg" src="images/family-02.jpg" alt="" aria-hidden="true">
-    <img class="fg" src="images/family-02.jpg" alt="Family celebrating together with live mariachi music">
-  </div>
-  <div class="banner-slide" data-cap="Wedding">
-    <img class="bg" src="images/full/wedding-07.png" alt="" aria-hidden="true">
-    <img class="fg" src="images/full/wedding-07.png" alt="Bride and groom smiling on stage at their reception">
-  </div>
-  <div class="banner-slide" data-cap="Engagement">
-    <img class="bg" src="images/engagement-02.jpg" alt="" aria-hidden="true">
-    <img class="fg" src="images/engagement-02.jpg" alt="Engagement proposal in a Frederick, MD park">
-  </div>
-  <div class="banner-slide" data-cap="Headshots">
-    <img class="bg" src="images/headshot-02.jpg" alt="" aria-hidden="true">
-    <img class="fg" src="images/headshot-02.jpg" alt="Professional headshot portrait">
-  </div>
-  <div class="banner-slide" data-cap="Real Estate">
-    <img class="bg" src="images/realestate-02.jpg" alt="" aria-hidden="true">
-    <img class="fg" src="images/realestate-02.jpg" alt="Real estate interior kitchen photo">
+  <div class="banner-track">
+    <div class="banner-tile">
+      <div class="tile-slide active">
+        <img src="images/headshot-01.jpg" alt="Professional headshot portrait in front of a landmark">
+        <div class="tile-cap">Headshots</div>
+      </div>
+      <div class="tile-slide">
+        <img src="images/realestate-02.jpg" alt="Real estate interior kitchen photo">
+        <div class="tile-cap">Real Estate</div>
+      </div>
+      <div class="tile-slide">
+        <img src="images/headshot-02.jpg" alt="Professional headshot portrait">
+        <div class="tile-cap">Headshots</div>
+      </div>
+      <div class="tile-slide">
+        <img src="images/realestate-01.jpg" alt="Real estate nursery room photo">
+        <div class="tile-cap">Real Estate</div>
+      </div>
+      <div class="tile-slide">
+        <img src="images/headshot-03.jpg" alt="Professional headshot portrait">
+        <div class="tile-cap">Headshots</div>
+      </div>
+    </div>
+    <div class="banner-tile">
+      <div class="tile-slide active">
+        <img src="images/family-01.jpg" alt="Family posing with a mariachi band">
+        <div class="tile-cap">Family</div>
+      </div>
+      <div class="tile-slide">
+        <img src="images/engagement-02.jpg" alt="Engagement proposal in a Frederick, MD park">
+        <div class="tile-cap">Engagement</div>
+      </div>
+      <div class="tile-slide">
+        <img src="images/family-02.jpg" alt="Family celebrating together with live mariachi music">
+        <div class="tile-cap">Family</div>
+      </div>
+      <div class="tile-slide">
+        <img src="images/engagement-04.jpg" alt="Engaged couple laughing together outdoors">
+        <div class="tile-cap">Engagement</div>
+      </div>
+      <div class="tile-slide">
+        <img src="images/family-03.jpg" alt="Family lifting a child in the air together outdoors">
+        <div class="tile-cap">Family</div>
+      </div>
+      <div class="tile-slide">
+        <img src="images/engagement-06.jpg" alt="Engaged couple sitting together in a garden">
+        <div class="tile-cap">Engagement</div>
+      </div>
+      <div class="tile-slide">
+        <img src="images/engagement-03.jpg" alt="Engaged couple silhouetted against the sunset">
+        <div class="tile-cap">Engagement</div>
+      </div>
+    </div>
+    <div class="banner-tile">
+      <div class="tile-slide active">
+        <img src="images/full/wedding-11.jpg" alt="Bride and groom walking down the aisle at their wedding reception">
+        <div class="tile-cap">Wedding</div>
+      </div>
+      <div class="tile-slide">
+        <img src="images/full/wedding-04.png" alt="Bride and groom laughing together outside their wedding venue">
+        <div class="tile-cap">Wedding</div>
+      </div>
+      <div class="tile-slide">
+        <img src="images/full/wedding-07.png" alt="Bride and groom smiling on stage at their reception">
+        <div class="tile-cap">Wedding</div>
+      </div>
+    </div>
   </div>
   <a class="banner-more" href="gallery.html">Full gallery →</a>
-  <div class="banner-cap" id="bannerCap">Wedding</div>
-  <div class="banner-dots" id="bannerDots"></div>
 </div>
 
 <div class="sprockets"></div>
@@ -409,36 +438,27 @@
 <script>
 (function(){
   const banner = document.getElementById('banner');
-  const slides = banner.querySelectorAll('.banner-slide');
-  const cap = document.getElementById('bannerCap');
-  const dotsWrap = document.getElementById('bannerDots');
-  let current = 0, timer;
+  const timers = [];
 
-  slides.forEach((s, i) => {
-    const dot = document.createElement('button');
-    dot.setAttribute('aria-label', 'Show slide ' + (i + 1));
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => { goTo(i); resetTimer(); });
-    dotsWrap.appendChild(dot);
+  function initTile(tile, i){
+    const slides = tile.querySelectorAll('.tile-slide');
+    if (slides.length < 2) return;
+    let current = Array.from(slides).findIndex(s => s.classList.contains('active'));
+    timers[i] = setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4200);
+  }
+
+  banner.querySelectorAll('.banner-tile').forEach((tile, i) => {
+    setTimeout(() => initTile(tile, i), i * 700);
   });
-  const dots = dotsWrap.querySelectorAll('button');
 
-  function goTo(i){
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = i;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-    cap.textContent = slides[current].dataset.cap;
-  }
-  function next(){ goTo((current + 1) % slides.length); }
-  function resetTimer(){
-    clearInterval(timer);
-    timer = setInterval(next, 4800);
-  }
-  resetTimer();
-  banner.addEventListener('mouseenter', () => clearInterval(timer));
-  banner.addEventListener('mouseleave', resetTimer);
+  banner.addEventListener('mouseenter', () => timers.forEach(t => clearInterval(t)));
+  banner.addEventListener('mouseleave', () => {
+    banner.querySelectorAll('.banner-tile').forEach(initTile);
+  });
 })();
 </script>
 
