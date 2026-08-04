@@ -174,7 +174,7 @@
   .card.featured .cta:hover{background:var(--paper);color:var(--ink);}
 
   /* Spec sheet */
-  .specsheet{margin:56px 6% 90px;border:1px solid var(--line);}
+  .specsheet{margin:56px 6% 30px;border:1px solid var(--line);}
   .specsheet-head{
     padding:16px 24px;border-bottom:1px solid var(--line);
     font-family:'IBM Plex Mono',monospace;font-size:0.76rem;
@@ -187,6 +187,26 @@
   }
   .spec-row:last-child{border-bottom:none;}
   .spec-row span:last-child{font-family:'IBM Plex Mono',monospace;color:var(--ink-soft);white-space:nowrap;}
+
+  /* Footnotes */
+  .footnotes{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    margin:0 6% 90px;
+  }
+  .footnote-col{
+    border:1px solid var(--line);
+    padding:28px 26px;
+  }
+  .footnote-col h3{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;
+    letter-spacing:0.32em;text-transform:uppercase;color:var(--teal);
+    margin:0 0 14px;
+  }
+  .footnote-col p{
+    font-size:0.92rem;line-height:1.65;color:var(--ink-soft);margin:0;
+  }
 
   footer{
     border-top:1px solid var(--line);
@@ -201,6 +221,7 @@
     nav{width:100%;justify-content:flex-start;gap:12px 22px;}
     nav a{padding:4px 0 6px;}
     .grid{grid-template-columns:1fr;}
+    .footnotes{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -287,6 +308,17 @@
   <div class="spec-row"><span>Extra hour of coverage</span><span>$175</span></div>
   <div class="spec-row"><span>Second shooter only</span><span>$350</span></div>
   <div class="spec-row"><span>Rush 72-hr sneak peek</span><span>$150</span></div>
+</div>
+
+<div class="footnotes">
+  <div class="footnote-col">
+    <h3>Booking</h3>
+    <p>A 30% deposit holds your date, with the balance due two weeks before the wedding. Payment plans available on request. Booking 6–9 months out is recommended for peak season (May–October).</p>
+  </div>
+  <div class="footnote-col">
+    <h3>Travel</h3>
+    <p>Coverage within 30 miles is included in every package. Venues beyond that add a small travel fee, quoted before you book — no surprises on the invoice.</p>
+  </div>
 </div>
 
 <footer>
