@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saenz Media Co. — Photography & Video, Frederick MD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EE;
+    --card:#FFFFFF;
+    --ink:#1B1A17;
+    --ink-soft:#5B584F;
+    --line:#DAD5C8;
+    --teal:#1F6F64;
+    --amber:#B4711F;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  /* Masthead */
+  .masthead{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 6%;
+    border-bottom:1px solid var(--line);
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+  }
+  .brand svg{width:20px;height:20px;flex-shrink:0;}
+  nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    flex:1 1 auto;
+    gap:10px 20px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  nav a{text-decoration:none;color:var(--ink-soft);padding-bottom:4px;border-bottom:1px solid transparent;transition:border-color .2s,color .2s;}
+  nav a:hover{color:var(--ink);border-color:var(--ink);}
+  nav a.active{color:var(--ink);border-color:var(--teal);}
+
+  /* Hero */
+  .hero{padding:76px 6% 44px;max-width:920px;}
+  .eyebrow{
+    display:flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:22px;
+  }
+  .eyebrow::before{content:'';width:7px;height:7px;background:var(--teal);border-radius:50%;display:inline-block;}
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:clamp(26px,7vw,66px);
+    line-height:1.05;
+    margin:0 0 22px;
+    letter-spacing:-0.01em;
+  }
+  .hero p{
+    font-size:1.1rem;
+    line-height:1.6;
+    color:var(--ink-soft);
+    max-width:56ch;
+    margin:0;
+  }
+
+  /* Sprocket divider */
+  .sprockets{
+    height:8px;
+    margin:44px 6%;
+    background-image:radial-gradient(circle, var(--line) 2px, transparent 2.6px);
+    background-size:20px 100%;
+    background-repeat:repeat-x;
+    background-position:left center;
+  }
+
+  .market-note{
+    padding:0 6% 8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.75rem;
+    color:var(--ink-soft);
+    font-style:italic;
+    max-width:60ch;
+  }
+
+  /* Pricing grid */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    padding:28px 6% 20px;
+  }
+  .card{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:46px 30px 34px;
+    display:flex;
+    flex-direction:column;
+  }
+  .card::before{
+    content:'';position:absolute;top:14px;left:14px;width:20px;height:20px;
+    border-top:2px solid var(--ink);border-left:2px solid var(--ink);
+  }
+  .card::after{
+    content:'';position:absolute;bottom:14px;right:14px;width:20px;height:20px;
+    border-bottom:2px solid var(--ink);border-right:2px solid var(--ink);
+  }
+  .card.featured{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .card.featured::before{border-color:var(--paper);}
+  .card.featured::after{border-color:var(--paper);}
+  .fstop{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.82rem;
+    letter-spacing:0.08em;
+    color:var(--teal);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .card.featured .fstop{color:#7FCFC2;}
+  .badge{
+    position:absolute;top:14px;right:14px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;
+    background:var(--amber);color:#fff;padding:4px 8px;
+  }
+  .tier{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.55rem;margin:0 0 6px;}
+  .price{
+    font-family:'IBM Plex Mono',monospace;font-size:2.4rem;font-weight:500;
+    margin:6px 0 4px;
+  }
+  .price-note{font-size:0.78rem;color:var(--ink-soft);margin-bottom:22px;}
+  .card.featured .price-note{color:#C9C6BC;}
+  .features{list-style:none;margin:0 0 30px;padding:0;flex-grow:1;}
+  .features li{
+    padding:9px 0;border-bottom:1px dashed var(--line);
+    font-size:0.94rem;line-height:1.4;
+  }
+  .card.featured .features li{border-bottom-color:#3A3934;}
+  .features li:last-child{border-bottom:none;}
+  .cta{
+    display:block;text-align:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;
+    padding:14px;border:1px solid var(--ink);
+    text-decoration:none;color:var(--ink);
+    transition:background .2s,color .2s;
+  }
+  .cta:hover{background:var(--ink);color:var(--paper);}
+  .card.featured .cta{border-color:var(--paper);color:var(--paper);}
+  .card.featured .cta:hover{background:var(--paper);color:var(--ink);}
+
+  /* Spec sheet */
+  .specsheet{margin:56px 6% 90px;border:1px solid var(--line);}
+  .specsheet-head{
+    padding:16px 24px;border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:0.76rem;
+    letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .spec-row{
+    display:flex;justify-content:space-between;gap:20px;
+    padding:14px 24px;border-bottom:1px dashed var(--line);
+    font-size:0.95rem;
+  }
+  .spec-row:last-child{border-bottom:none;}
+  .spec-row span:last-child{font-family:'IBM Plex Mono',monospace;color:var(--ink-soft);white-space:nowrap;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:26px 6%;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);
+  }
+
+  .grid4{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    padding:28px 6% 20px;
+  }
+  .nav-card{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:40px 26px 30px;
+    display:flex;
+    flex-direction:column;
+    text-decoration:none;
+    color:var(--ink);
+    transition:border-color .2s;
+  }
+  .nav-card:hover{border-color:var(--ink);}
+  .nav-card::before{
+    content:'';position:absolute;top:14px;left:14px;width:18px;height:18px;
+    border-top:2px solid var(--ink);border-left:2px solid var(--ink);
+  }
+  .nav-card::after{
+    content:'';position:absolute;bottom:14px;right:14px;width:18px;height:18px;
+    border-bottom:2px solid var(--ink);border-right:2px solid var(--ink);
+  }
+  .nav-card .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:16px;
+  }
+  .nav-card h2{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.4rem;margin:0 0 10px;}
+  .nav-card p{font-size:0.88rem;line-height:1.55;color:var(--ink-soft);margin:0 0 22px;flex-grow:1;}
+  .nav-card .go{
+    font-family:'IBM Plex Mono',monospace;font-size:0.74rem;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--ink);
+  }
+  .nav-card .go::after{content:' →';}
+
+  .about{padding:60px 6% 20px;max-width:760px;}
+  .about h2{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.6rem;margin:0 0 14px;}
+  .about p{font-size:1rem;line-height:1.7;color:var(--ink-soft);margin:0;}
+
+  @media (max-width:860px){
+    .masthead{flex-direction:column;align-items:flex-start;}
+    nav{width:100%;justify-content:flex-start;gap:12px 22px;}
+    nav a{padding:4px 0 6px;}
+    .grid{grid-template-columns:1fr;}
+    .grid4{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    .grid4{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <a class="brand" href="index.html" style="text-decoration:none;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9.3"/><circle cx="12" cy="12" r="3.2"/><path d="M12 2.7v3.1M12 18.2v3.1M21.3 12h-3.1M5.8 12H2.7M18.1 5.9l-2.2 2.2M8.1 15.9l-2.2 2.2M18.1 18.1l-2.2-2.2M8.1 8.1 5.9 5.9"/></svg>
+    Saenz Media Co. — FREDERICK, MD
+  </a>
+  <nav>
+ <a href="index.html" class="active">Home</a>
+    <a href="weddings.html">Weddings</a>
+    <a href="family.html">Family</a>
+    <a href="headshots.html">Headshots</a>
+    <a href="real-estate.html">Real Estate</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+</div>
+
+<div class="hero">
+  <div class="eyebrow">Photography & Video</div>
+  <h1 style="white-space:nowrap;">Frederick, MD & the DMV.</h1>
+  <p>Weddings, family sessions, headshots, and real estate media — shot, edited, and delivered. Pick a service below to see pricing.</p>
+</div>
+
+<div class="sprockets"></div>
+
+<div class="grid4">
+
+  <a class="nav-card" href="weddings.html">
+    <div class="tag">From $1,200</div>
+    <h2>Weddings</h2>
+    <p>Full-day coverage, engagement sessions, and albums for the day you'll want to relive.</p>
+    <div class="go">View pricing</div>
+  </a>
+
+  <a class="nav-card" href="family.html">
+    <div class="tag">From $175</div>
+    <h2>Family</h2>
+    <p>Relaxed sessions built around your family's actual rhythm — golden hour, giggles, and all.</p>
+    <div class="go">View pricing</div>
+  </a>
+
+  <a class="nav-card" href="headshots.html">
+    <div class="tag">From $150</div>
+    <h2>Headshots</h2>
+    <p>Confident, polished headshots for LinkedIn, teams, and personal branding.</p>
+    <div class="go">View pricing</div>
+  </a>
+
+  <a class="nav-card" href="real-estate.html">
+    <div class="tag">From $175</div>
+    <h2>Real Estate</h2>
+    <p>HDR photos, cinematic walkthroughs, and drone coverage that help listings sell faster.</p>
+    <div class="go">View pricing</div>
+  </a>
+
+</div>
+
+<div class="about">
+  <h2>About us</h2>
+  <p>Based in Frederick, MD and serving the greater DMV, Saenz Media Co. brings photo, video, and design background to every shoot — from wedding days to listing walkthroughs. Every package is built to be booked directly, with clear pricing up front and no back-and-forth required to get a quote.</p>
+</div>
+
+<footer>
+  <span>Frederick, MD · Serving the DMV</span>
+  <span>Home</span>
+</footer>
+
+</body>
+</html>

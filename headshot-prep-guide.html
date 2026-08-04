@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Headshot Session Prep Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EE;
+    --card:#FFFFFF;
+    --ink:#1B1A17;
+    --ink-soft:#5B584F;
+    --line:#DAD5C8;
+    --teal:#1F6F64;
+    --amber:#B4711F;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  /* Masthead */
+  .masthead{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 6%;
+    border-bottom:1px solid var(--line);
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    text-decoration:none;
+  }
+  .brand svg{width:20px;height:20px;flex-shrink:0;}
+  nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    flex:1 1 auto;
+    gap:10px 20px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  nav a{text-decoration:none;color:var(--ink-soft);padding-bottom:4px;border-bottom:1px solid transparent;transition:border-color .2s,color .2s;}
+  nav a:hover{color:var(--ink);border-color:var(--ink);}
+  nav a.active{color:var(--ink);border-color:var(--teal);}
+
+  /* Hero */
+  .hero{padding:76px 6% 44px;max-width:920px;}
+  .eyebrow{
+    display:flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:22px;
+  }
+  .eyebrow::before{content:'';width:7px;height:7px;background:var(--teal);border-radius:50%;display:inline-block;}
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:clamp(38px,5.6vw,66px);
+    line-height:1.05;
+    margin:0 0 22px;
+    letter-spacing:-0.01em;
+  }
+  .hero p{
+    font-size:1.1rem;
+    line-height:1.6;
+    color:var(--ink-soft);
+    max-width:56ch;
+    margin:0;
+  }
+
+  /* Sprocket divider */
+  .sprockets{
+    height:8px;
+    margin:44px 6%;
+    background-image:radial-gradient(circle, var(--line) 2px, transparent 2.6px);
+    background-size:20px 100%;
+    background-repeat:repeat-x;
+    background-position:left center;
+  }
+
+  .market-note{
+    padding:0 6% 8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.75rem;
+    color:var(--ink-soft);
+    font-style:italic;
+    max-width:60ch;
+  }
+
+  /* Pricing grid */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    padding:28px 6% 20px;
+  }
+  .card{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:46px 30px 34px;
+    display:flex;
+    flex-direction:column;
+  }
+  .card::before{
+    content:'';position:absolute;top:14px;left:14px;width:20px;height:20px;
+    border-top:2px solid var(--ink);border-left:2px solid var(--ink);
+  }
+  .card::after{
+    content:'';position:absolute;bottom:14px;right:14px;width:20px;height:20px;
+    border-bottom:2px solid var(--ink);border-right:2px solid var(--ink);
+  }
+  .card.featured{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .card.featured::before{border-color:var(--paper);}
+  .card.featured::after{border-color:var(--paper);}
+  .fstop{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.82rem;
+    letter-spacing:0.08em;
+    color:var(--teal);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .card.featured .fstop{color:#7FCFC2;}
+  .badge{
+    position:absolute;top:14px;right:14px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;
+    background:var(--amber);color:#fff;padding:4px 8px;
+  }
+  .tier{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.55rem;margin:0 0 6px;}
+  .price{
+    font-family:'IBM Plex Mono',monospace;font-size:2.4rem;font-weight:500;
+    margin:6px 0 4px;
+  }
+  .price-note{font-size:0.78rem;color:var(--ink-soft);margin-bottom:22px;}
+  .card.featured .price-note{color:#C9C6BC;}
+  .features{list-style:none;margin:0 0 30px;padding:0;flex-grow:1;}
+  .features li{
+    padding:9px 0;border-bottom:1px dashed var(--line);
+    font-size:0.94rem;line-height:1.4;
+  }
+  .card.featured .features li{border-bottom-color:#3A3934;}
+  .features li:last-child{border-bottom:none;}
+  .cta{
+    display:block;text-align:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;
+    padding:14px;border:1px solid var(--ink);
+    text-decoration:none;color:var(--ink);
+    transition:background .2s,color .2s;
+  }
+  .cta:hover{background:var(--ink);color:var(--paper);}
+  .card.featured .cta{border-color:var(--paper);color:var(--paper);}
+  .card.featured .cta:hover{background:var(--paper);color:var(--ink);}
+
+  /* Spec sheet */
+  .specsheet{margin:56px 6% 90px;border:1px solid var(--line);}
+  .specsheet-head{
+    padding:16px 24px;border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:0.76rem;
+    letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .spec-row{
+    display:flex;justify-content:space-between;gap:20px;
+    padding:14px 24px;border-bottom:1px dashed var(--line);
+    font-size:0.95rem;
+  }
+  .spec-row:last-child{border-bottom:none;}
+  .spec-row span:last-child{font-family:'IBM Plex Mono',monospace;color:var(--ink-soft);white-space:nowrap;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:26px 6%;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);
+  }
+
+  .grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    padding:28px 6% 20px;
+  }
+  .listcard{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:32px 30px;
+  }
+  .listcard h3{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--ink-soft);margin:0 0 18px;
+  }
+  .listcard.wear h3{color:var(--teal);}
+  .listcard.avoid h3{color:var(--amber);}
+  .listcard ul{list-style:none;margin:0;padding:0;}
+  .listcard li{
+    padding:9px 0;border-bottom:1px dashed var(--line);
+    font-size:0.95rem;line-height:1.4;
+  }
+  .listcard li:last-child{border-bottom:none;}
+
+  .section-head{
+    padding:0 6%;
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:1.5rem;margin:64px 0 4px;
+  }
+
+  .timeline{margin:20px 6% 10px;border:1px solid var(--line);}
+  .tl-row{
+    display:flex;gap:26px;padding:18px 24px;border-bottom:1px dashed var(--line);
+  }
+  .tl-row:last-child{border-bottom:none;}
+  .tl-when{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;
+    color:var(--teal);text-transform:uppercase;letter-spacing:0.06em;
+    min-width:130px;flex-shrink:0;
+  }
+  .tl-what{font-size:0.95rem;line-height:1.5;color:var(--ink);}
+
+  .email-box{
+    margin:20px 6% 10px;
+    border:1px solid var(--line);
+    background:var(--card);
+  }
+  .email-box-head{
+    padding:16px 24px;border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:0.76rem;
+    letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);
+    display:flex;justify-content:space-between;
+  }
+  .email-body{
+    padding:28px 24px;
+    font-size:0.95rem;line-height:1.75;color:var(--ink);
+    white-space:pre-wrap;
+  }
+  .email-body .sig{color:var(--ink-soft);}
+
+  @media (max-width:860px){
+    .masthead{flex-direction:column;align-items:flex-start;}
+    nav{width:100%;justify-content:flex-start;gap:12px 22px;}
+    nav a{padding:4px 0 6px;}
+    .grid{grid-template-columns:1fr;}
+    .grid2{grid-template-columns:1fr;}
+    .tl-row{flex-direction:column;gap:6px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <a class="brand" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9.3"/><circle cx="12" cy="12" r="3.2"/><path d="M12 2.7v3.1M12 18.2v3.1M21.3 12h-3.1M5.8 12H2.7M18.1 5.9l-2.2 2.2M8.1 15.9l-2.2 2.2M18.1 18.1l-2.2-2.2M8.1 8.1 5.9 5.9"/></svg>
+    Saenz Media Co. — Frederick, MD
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="weddings.html">Weddings</a>
+    <a href="family.html">Family</a>
+    <a href="headshots.html">Headshots</a>
+    <a href="real-estate.html">Real Estate</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+</div>
+
+<div class="hero">
+  <div class="eyebrow">Before Your Session</div>
+  <h1>Look ready. Feel ready.</h1>
+  <p>A short guide to wardrobe, timing, and what to expect — sent after booking so there are no surprises on session day.</p>
+</div>
+
+<div class="sprockets"></div>
+
+<div class="section-head">What to wear</div>
+<div class="grid2">
+  <div class="listcard wear">
+    <h3>Do</h3>
+    <ul>
+      <li>Solid colors and jewel tones (navy, burgundy, forest green, charcoal)</li>
+      <li>Well-fitted clothing, especially through the shoulders and collar</li>
+      <li>Bring 2–3 outfit options if your package includes multiple looks</li>
+      <li>Subtle, simple jewelry</li>
+      <li>Matte skin — a light powder helps cut shine under studio light</li>
+    </ul>
+  </div>
+  <div class="listcard avoid">
+    <h3>Avoid</h3>
+    <ul>
+      <li>All-white or all-black (both are hard to light well)</li>
+      <li>Busy patterns, stripes, or logos</li>
+      <li>Clothing that closely matches the background color</li>
+      <li>Anything brand-new and unworn — comfort shows on camera</li>
+      <li>Heavy, glossy makeup</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section-head">Session-day timeline</div>
+<div class="timeline">
+  <div class="tl-row">
+    <div class="tl-when">Day before</div>
+    <div class="tl-what">Lay out your outfit(s) and confirm the session time and location. Charge your phone if you're using it for reference shots.</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-when">Morning of</div>
+    <div class="tl-what">Arrive a few minutes early. If hair/makeup isn't included, plan to finish that beforehand — natural, camera-ready is the goal, not full glam.</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-when">During</div>
+    <div class="tl-what">Expect direction on posing throughout — chin position, shoulder angle, weight distribution. A few different expressions will be captured: approachable, confident, and a natural candid.</div>
+  </div>
+  <div class="tl-row">
+    <div class="tl-when">After</div>
+    <div class="tl-what">Proofs are typically ready within a few business days, delivered through a private online gallery.</div>
+  </div>
+</div>
+
+<div class="section-head">Welcome email template</div>
+<div class="email-box">
+  <div class="email-box-head"><span>Subject: Getting ready for your headshot session</span><span>Copy &amp; send</span></div>
+  <div class="email-body">Hi [Client Name],
+
+Excited for your headshot session on [Date] at [Time]! Here's a quick rundown so you feel fully prepared.
+
+WHAT TO WEAR
+Solid colors and jewel tones photograph best — think navy, burgundy, or charcoal. Avoid all-white, all-black, busy patterns, or logos. If your package includes multiple looks, bring 2–3 outfit options so we can pick the strongest ones together.
+
+BEFORE YOU ARRIVE
+If hair and makeup aren't included, aim for natural and camera-ready rather than full glam — a light powder helps cut shine under studio light.
+
+WHAT TO EXPECT
+I'll direct you through posing the whole time, so there's no need to know what to do beforehand — just show up comfortable. We'll capture a mix of expressions: confident, approachable, and a natural candid or two.
+
+WHERE TO GO
+[Studio address or on-location details]
+
+Let me know if you have any questions before then — see you soon!
+
+<span class="sig">[Your name]
+Saenz Media Co. · Frederick, MD</span></div>
+</div>
+
+<footer>
+  <span>Frederick, MD · Serving the DMV</span>
+  <span>Headshots — Session Prep Guide</span>
+</footer>
+
+</body>
+</html>
