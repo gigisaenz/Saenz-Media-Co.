@@ -252,10 +252,22 @@
   .filter-btn.active{background:var(--ink);border-color:var(--ink);color:var(--paper);}
 
   .gallery{
+    padding:28px 6% 70px;
+  }
+  .category-group{margin-bottom:44px;}
+  .category-group:last-child{margin-bottom:0;}
+  .category-head{
+    display:flex;align-items:baseline;gap:12px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;
+    letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);
+    border-bottom:1px solid var(--line);
+    padding-bottom:10px;margin:0 0 18px;
+  }
+  .category-head .count{color:var(--teal);}
+  .category-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:18px;
-    padding:28px 6% 70px;
   }
   .tile{
     position:relative;
@@ -295,11 +307,11 @@
     nav a{padding:4px 0 6px;}
     .grid{grid-template-columns:1fr;}
     .grid4{grid-template-columns:1fr 1fr;}
-    .gallery{grid-template-columns:1fr 1fr;}
+    .category-grid{grid-template-columns:1fr 1fr;}
   }
   @media (max-width:560px){
     .grid4{grid-template-columns:1fr;}
-    .gallery{grid-template-columns:1fr;}
+    .category-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -339,19 +351,66 @@
 </div>
 
 <div class="gallery">
-  <div class="tile" data-cat="wedding"><img src="images/wedding-01.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
-  <div class="tile" data-cat="wedding"><img src="images/wedding-02.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
-  <div class="tile" data-cat="wedding"><img src="images/wedding-03.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
-  <div class="tile" data-cat="family"><img src="images/family-01.jpg" alt="Family photography"><span class="cap">Family</span></div>
-  <div class="tile" data-cat="family"><img src="images/family-02.jpg" alt="Family photography"><span class="cap">Family</span></div>
-  <div class="tile" data-cat="family"><img src="images/family-03.jpg" alt="Family photography"><span class="cap">Family</span></div>
-  <div class="tile" data-cat="headshot"><img src="images/headshot-01.jpg" alt="Headshot photography"><span class="cap">Headshot</span></div>
-  <div class="tile" data-cat="headshot"><img src="images/headshot-02.jpg" alt="Headshot photography"><span class="cap">Headshot</span></div>
-  <div class="tile" data-cat="realestate"><img src="images/realestate-01.jpg" alt="Real estate photography"><span class="cap">Real Estate</span></div>
-  <div class="tile" data-cat="realestate"><img src="images/realestate-02.jpg" alt="Real estate photography"><span class="cap">Real Estate</span></div>
-  <div class="tile" data-cat="engagement"><img src="images/engagement-01.jpg" alt="Engagement photography"><span class="cap">Engagement</span></div>
-  <div class="tile" data-cat="engagement"><img src="images/engagement-02.jpg" alt="Engagement photography"><span class="cap">Engagement</span></div>
-  <div class="tile" data-cat="engagement"><img src="images/engagement-03.jpg" alt="Engagement photography"><span class="cap">Engagement</span></div>
+
+  <div class="category-group" data-group="wedding">
+    <div class="category-head">Wedding <span class="count">(11)</span></div>
+    <div class="category-grid">
+      <div class="tile"><img src="images/wedding-01.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
+      <div class="tile"><img src="images/wedding-02.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
+      <div class="tile"><img src="images/wedding-03.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
+      <div class="tile"><img src="images/wedding-04.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
+      <div class="tile"><img src="images/wedding-05.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
+      <div class="tile"><img src="images/wedding-06.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
+      <div class="tile"><img src="images/wedding-07.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
+      <div class="tile"><img src="images/wedding-08.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
+      <div class="tile"><img src="images/wedding-09.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
+      <div class="tile"><img src="images/wedding-10.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
+      <div class="tile"><img src="images/wedding-11.jpg" alt="Wedding photography"><span class="cap">Wedding</span></div>
+    </div>
+  </div>
+
+  <div class="category-group" data-group="family">
+    <div class="category-head">Family <span class="count">(6)</span></div>
+    <div class="category-grid">
+      <div class="tile"><img src="images/family-01.jpg" alt="Family photography"><span class="cap">Family</span></div>
+      <div class="tile"><img src="images/family-02.jpg" alt="Family photography"><span class="cap">Family</span></div>
+      <div class="tile"><img src="images/family-03.jpg" alt="Family photography"><span class="cap">Family</span></div>
+      <div class="tile"><img src="images/family-04.jpg" alt="Family photography"><span class="cap">Family</span></div>
+      <div class="tile"><img src="images/family-05.jpg" alt="Family photography"><span class="cap">Family</span></div>
+      <div class="tile"><img src="images/family-06.jpg" alt="Family photography"><span class="cap">Family</span></div>
+    </div>
+  </div>
+
+  <div class="category-group" data-group="headshot">
+    <div class="category-head">Headshot <span class="count">(3)</span></div>
+    <div class="category-grid">
+      <div class="tile"><img src="images/headshot-01.jpg" alt="Headshot photography"><span class="cap">Headshot</span></div>
+      <div class="tile"><img src="images/headshot-02.jpg" alt="Headshot photography"><span class="cap">Headshot</span></div>
+      <div class="tile"><img src="images/headshot-03.jpg" alt="Headshot photography"><span class="cap">Headshot</span></div>
+    </div>
+  </div>
+
+  <div class="category-group" data-group="engagement">
+    <div class="category-head">Engagement <span class="count">(7)</span></div>
+    <div class="category-grid">
+      <div class="tile"><img src="images/engagement-01.jpg" alt="Engagement photography"><span class="cap">Engagement</span></div>
+      <div class="tile"><img src="images/engagement-02.jpg" alt="Engagement photography"><span class="cap">Engagement</span></div>
+      <div class="tile"><img src="images/engagement-03.jpg" alt="Engagement photography"><span class="cap">Engagement</span></div>
+      <div class="tile"><img src="images/engagement-04.jpg" alt="Engagement photography"><span class="cap">Engagement</span></div>
+      <div class="tile"><img src="images/engagement-05.jpg" alt="Engagement photography"><span class="cap">Engagement</span></div>
+      <div class="tile"><img src="images/engagement-06.jpg" alt="Engagement photography"><span class="cap">Engagement</span></div>
+      <div class="tile"><img src="images/engagement-07.jpg" alt="Engagement photography"><span class="cap">Engagement</span></div>
+    </div>
+  </div>
+
+  <div class="category-group" data-group="realestate">
+    <div class="category-head">Real Estate <span class="count">(2)</span></div>
+    <div class="category-grid">
+      <div class="tile"><img src="images/realestate-01.jpg" alt="Real estate photography"><span class="cap">Real Estate</span></div>
+      <div class="tile"><img src="images/realestate-02.jpg" alt="Real estate photography"><span class="cap">Real Estate</span></div>
+    </div>
+  </div>
+
 </div>
 
 <footer>
@@ -365,8 +424,8 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const filter = btn.dataset.filter;
-    document.querySelectorAll('.tile').forEach(tile => {
-      tile.style.display = (filter === 'all' || tile.dataset.cat === filter) ? '' : 'none';
+    document.querySelectorAll('.category-group').forEach(group => {
+      group.style.display = (filter === 'all' || group.dataset.group === filter) ? '' : 'none';
     });
   });
 });
