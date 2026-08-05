@@ -313,9 +313,11 @@
     align-items:center;
     gap:48px;
   }
+  .about-photos{flex:0 0 140px;display:flex;flex-direction:column;gap:20px;}
+  .about-photo-wrap{display:flex;flex-direction:column;gap:10px;}
   .about-photo{
     position:relative;
-    flex:0 0 140px;
+    width:100%;
     aspect-ratio:3/4;
     overflow:hidden;
     border:1px solid var(--line);
@@ -328,6 +330,11 @@
   .about-photo::after{
     content:'';position:absolute;bottom:12px;right:12px;width:18px;height:18px;
     border-bottom:2px solid var(--paper);border-right:2px solid var(--paper);
+  }
+  .about-name{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--ink-soft);text-align:center;
   }
   .about-text{flex:1 1 auto;max-width:640px;}
   .about h2{font-family:'Inter',sans-serif;font-weight:800;text-transform:uppercase;font-size:1.5rem;margin:0 0 14px;}
@@ -342,7 +349,7 @@
     .grid{grid-template-columns:1fr;}
     .grid4{grid-template-columns:1fr 1fr;}
     .about{gap:24px;align-items:flex-start;}
-    .about-photo{flex:0 0 110px;}
+    .about-photos{flex:0 0 110px;}
   }
   @media (max-width:560px){
     .grid4{grid-template-columns:1fr;}
@@ -485,8 +492,19 @@
 </div>
 
 <div class="about">
-  <div class="about-photo">
-    <img src="images/about-gigi.jpg" alt="Gigi Saenz, founder and photographer at Saenz Media Co.">
+  <div class="about-photos">
+    <div class="about-photo-wrap">
+      <div class="about-photo">
+        <img src="images/about-gigi.jpg" alt="Gigi Saenz, founder and photographer at Saenz Media Co.">
+      </div>
+      <div class="about-name">Gigi Saenz</div>
+    </div>
+    <div class="about-photo-wrap">
+      <div class="about-photo">
+        <img src="images/about-yelsin.jpg" alt="Yelsin Saenz, Saenz Media Co.">
+      </div>
+      <div class="about-name">Yelsin Saenz</div>
+    </div>
   </div>
   <div class="about-text">
     <h2>About us</h2>
@@ -497,7 +515,7 @@
 <footer>
   <span>Frederick, MD · Serving the DMV</span>
   <a href="mailto:saenzmediaco@gmail.com">saenzmediaco@gmail.com</a>
-  <a href="https://instagram.com/gigi.saenz_" target="_blank" rel="noopener">@gigi.saenz_</a>
+  <a href="https://instagram.com/saenzmediaco" target="_blank" rel="noopener">@saenzmediaco</a>
   <span>Home</span>
 </footer>
 
