@@ -6,16 +6,18 @@
 <title>Headshots — Pricing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F6F4EE;
-    --card:#FFFFFF;
-    --ink:#1B1A17;
-    --ink-soft:#5B584F;
-    --line:#DAD5C8;
-    --teal:#1F6F64;
-    --amber:#B4711F;
+    --paper:#FBF7EC;
+    --card:#FFFDF6;
+    --ink:#132A3A;
+    --ink-soft:#51697A;
+    --line:#D7E1E6;
+    --blue:#082A18;
+    --blue-deep:#062213;
+    --blue-accent:#1C7A4C;
+    --cream:#F2EFB3;
   }
   *{box-sizing:border-box;}
   body{
@@ -32,21 +34,28 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 6%;
-    border-bottom:1px solid var(--line);
+    padding:18px 6%;
+    background:var(--blue);
+    border-bottom:1px solid var(--blue-deep);
     flex-wrap:wrap;
     gap:12px;
   }
   .brand{
     display:flex;
     align-items:center;
-    gap:10px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.78rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
   }
-  .brand svg{width:20px;height:20px;flex-shrink:0;}
+  .brand-logo{
+    height:40px;
+    width:auto;
+    display:block;
+  }
+  .menu-toggle{
+    display:none;
+    background:none;border:none;cursor:pointer;
+    padding:4px;color:#fff;
+    align-items:center;justify-content:center;
+  }
+  .menu-toggle svg{width:24px;height:24px;}
   nav{
     display:flex;
     flex-wrap:wrap;
@@ -54,13 +63,13 @@
     flex:1 1 auto;
     gap:10px 20px;
     font-family:'IBM Plex Mono',monospace;
-    font-size:0.72rem;
-    letter-spacing:0.1em;
+    font-size:0.82rem;
+    letter-spacing:0.08em;
     text-transform:uppercase;
   }
-  nav a{text-decoration:none;color:var(--ink-soft);padding-bottom:4px;border-bottom:1px solid transparent;transition:border-color .2s,color .2s;}
-  nav a:hover{color:var(--ink);border-color:var(--ink);}
-  nav a.active{color:var(--ink);border-color:var(--teal);}
+  nav a{text-decoration:none;color:rgba(255,255,255,0.8);padding-bottom:4px;border-bottom:1px solid transparent;transition:border-color .2s,color .2s;}
+  nav a:hover{color:#fff;border-color:#fff;}
+  nav a.active{color:#fff;border-color:var(--cream);}
 
   /* Hero */
   .hero{padding:40px 6% 44px;max-width:920px;}
@@ -68,16 +77,17 @@
     display:flex;align-items:center;gap:8px;
     font-family:'IBM Plex Mono',monospace;
     font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;
-    color:var(--teal);margin-bottom:22px;
+    color:var(--blue-accent);margin-bottom:22px;
   }
-  .eyebrow::before{content:'';width:7px;height:7px;background:var(--teal);border-radius:50%;display:inline-block;}
+  .eyebrow::before{content:'';width:7px;height:7px;background:var(--blue-accent);border-radius:50%;display:inline-block;}
   h1{
-    font-family:'Fraunces',serif;
-    font-weight:500;
+    font-family:'Inter',sans-serif;
+    font-weight:900;
+    text-transform:uppercase;
     font-size:clamp(38px,5.6vw,66px);
     line-height:1.05;
     margin:0 0 22px;
-    letter-spacing:-0.01em;
+    letter-spacing:-0.02em;
   }
   .hero p{
     font-size:1.1rem;
@@ -120,7 +130,9 @@
     padding:46px 30px 34px;
     display:flex;
     flex-direction:column;
+    transition:transform .25s ease, box-shadow .25s ease;
   }
+  .card:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(27,26,23,0.12);}
   .card::before{
     content:'';position:absolute;top:14px;left:14px;width:20px;height:20px;
     border-top:2px solid var(--ink);border-left:2px solid var(--ink);
@@ -129,49 +141,49 @@
     content:'';position:absolute;bottom:14px;right:14px;width:20px;height:20px;
     border-bottom:2px solid var(--ink);border-right:2px solid var(--ink);
   }
-  .card.featured{background:var(--ink);color:var(--paper);border-color:var(--ink);}
-  .card.featured::before{border-color:var(--paper);}
-  .card.featured::after{border-color:var(--paper);}
+  .card.featured{background:var(--blue);color:#fff;border-color:var(--blue);}
+  .card.featured::before{border-color:#fff;}
+  .card.featured::after{border-color:#fff;}
   .fstop{
     font-family:'IBM Plex Mono',monospace;
     font-size:0.82rem;
     letter-spacing:0.08em;
-    color:var(--teal);
+    color:var(--blue-accent);
     text-transform:uppercase;
     margin-bottom:14px;
   }
-  .card.featured .fstop{color:#7FCFC2;}
+  .card.featured .fstop{color:var(--cream);}
   .badge{
     position:absolute;top:14px;right:14px;
     font-family:'IBM Plex Mono',monospace;
     font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;
-    background:var(--amber);color:#fff;padding:4px 8px;
+    background:var(--cream);color:var(--ink);padding:4px 8px;
   }
-  .tier{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.55rem;margin:0 0 6px;}
+  .tier{font-family:'Inter',sans-serif;font-weight:800;text-transform:uppercase;font-size:1.4rem;margin:0 0 6px;}
   .price{
     font-family:'IBM Plex Mono',monospace;font-size:2.4rem;font-weight:500;
     margin:6px 0 4px;
   }
   .price-note{font-size:0.78rem;color:var(--ink-soft);margin-bottom:22px;}
-  .card.featured .price-note{color:#C9C6BC;}
+  .card.featured .price-note{color:#CFE9F5;}
   .features{list-style:none;margin:0 0 30px;padding:0;flex-grow:1;}
   .features li{
     padding:9px 0;border-bottom:1px dashed var(--line);
     font-size:0.94rem;line-height:1.4;
   }
-  .card.featured .features li{border-bottom-color:#3A3934;}
+  .card.featured .features li{border-bottom-color:rgba(255,255,255,0.28);}
   .features li:last-child{border-bottom:none;}
   .cta{
     display:block;text-align:center;
     font-family:'IBM Plex Mono',monospace;
     font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;
-    padding:14px;border:1px solid var(--ink);
-    text-decoration:none;color:var(--ink);
+    padding:14px;border:1px solid var(--blue-accent);
+    text-decoration:none;color:var(--blue-accent);
     transition:background .2s,color .2s;
   }
-  .cta:hover{background:var(--ink);color:var(--paper);}
-  .card.featured .cta{border-color:var(--paper);color:var(--paper);}
-  .card.featured .cta:hover{background:var(--paper);color:var(--ink);}
+  .cta:hover{background:var(--blue);color:#fff;}
+  .card.featured .cta{border-color:var(--cream);color:var(--cream);}
+  .card.featured .cta:hover{background:var(--cream);color:var(--blue-accent);}
 
   /* Spec sheet */
   .specsheet{margin:56px 6% 90px;border:1px solid var(--line);}
@@ -189,29 +201,39 @@
   .spec-row span:last-child{font-family:'IBM Plex Mono',monospace;color:var(--ink-soft);white-space:nowrap;}
 
   footer{
-    border-top:1px solid var(--line);
+    background:var(--blue);
+    border-top:1px solid var(--blue-deep);
     padding:26px 6%;
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
     font-family:'IBM Plex Mono',monospace;
-    font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);
+    font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.75);
   }
+  footer a{color:var(--cream);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s,color .2s;}
+  footer a:hover{color:#fff;border-color:#fff;}
 
-  @media (max-width:860px){
-    .masthead{flex-direction:column;align-items:flex-start;}
-    nav{width:100%;justify-content:flex-start;gap:12px 22px;}
-    nav a{padding:4px 0 6px;}
+  @media (max-width:900px){
+    .menu-toggle{display:flex;}
+    nav{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0;order:3;margin-top:12px;}
+    nav.open{display:flex;}
+    nav a{width:100%;padding:12px 0;border-bottom:1px dashed rgba(255,255,255,0.25);}
+    nav a:last-child{border-bottom:none;}
     .grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:420px){
+    .brand-logo{height:32px;}
   }
 </style>
 </head>
 <body>
 
 <div class="masthead">
-  <a class="brand" href="index.html" style="text-decoration:none;">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9.3"/><circle cx="12" cy="12" r="3.2"/><path d="M12 2.7v3.1M12 18.2v3.1M21.3 12h-3.1M5.8 12H2.7M18.1 5.9l-2.2 2.2M8.1 15.9l-2.2 2.2M18.1 18.1l-2.2-2.2M8.1 8.1 5.9 5.9"/></svg>
-    Saenz Media Co.
+  <a class="brand" href="index.html">
+    <img class="brand-logo" src="images/logo-mark.png" alt="Saenz Media Co.">
   </a>
-  <nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <nav id="siteNav">
    <a href="index.html">Home</a>
     <a href="weddings.html">Weddings</a>
     <a href="family.html">Family</a>
@@ -289,8 +311,21 @@
 
 <footer>
   <span>Frederick, MD · Serving the DMV</span>
+  <a href="mailto:saenzmediaco@gmail.com">saenzmediaco@gmail.com</a>
+  <a href="https://instagram.com/gigi.saenz_" target="_blank" rel="noopener">@gigi.saenz_</a>
   <span>Headshots — Rate Card</span>
 </footer>
+
+<script>
+(function(){
+  const menuToggle = document.getElementById('menuToggle');
+  const siteNav = document.getElementById('siteNav');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = siteNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+})();
+</script>
 
 </body>
 </html>
