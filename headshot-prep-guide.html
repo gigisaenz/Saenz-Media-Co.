@@ -45,20 +45,23 @@
   .brand{
     display:flex;
     align-items:flex-start;
+    text-decoration:none;
   }
-  .brand-tagline{margin-top:15px;}
+  .brand-tagline{margin-top:16px;}
   .brand-logo{
     height:40px;
     width:auto;
     display:block;
-    margin-top:7px;
+    margin-top:4px;
   }
   .brand-tagline{
     position:relative;
+    display:inline-block;
     font-family:'IBM Plex Mono',monospace;
     font-size:0.68rem;
     letter-spacing:0.14em;
     text-transform:uppercase;
+    text-decoration:none;
     color:var(--cream);
     padding-left:16px;
     margin-left:16px;
@@ -309,7 +312,14 @@
   }
   @media (max-width:420px){
     .brand-logo{height:32px;}
-    .brand-tagline{display:none;}
+  }
+  @media (max-width:340px){
+    .brand-tagline{
+      font-size:0.48rem;
+      letter-spacing:0.05em;
+      padding-left:10px;
+      margin-left:10px;
+    }
   }
 </style>
 </head>
